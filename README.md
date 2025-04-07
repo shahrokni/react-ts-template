@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+# 🧠 How to run the app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a minimal yet production-ready Node.js + TypeScript + Express project.  
+You can run it in **two different ways** — depending on your environment and preferences.
 
-## Available Scripts
+## 🚀 1. Run with Docker Compose
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- Docker installed
+- Docker Compose v2 (preferred) or legacy v1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> **Warning**
+> If you're using Compose v1 (`docker-compose`), just replace `docker compose` with `docker-compose` in the commands below.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Run the app:
 
-### `npm test`
+```bash
+sudo docker compose up --build
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. Run Locally Without Docker (Dev Mode)
 
-### `npm run build`
+**_The simplest way to start developing_**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm i
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 🧪 How to run the tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run test
+```
 
-### `npm run eject`
+# 🐳 Docker & Docker Compose 2.x Commands Cheat Sheet
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| **Command**                      | **Description**                                   |
+| -------------------------------- | ------------------------------------------------- |
+| `docker build -t name .`         | Build image from Dockerfile in current dir        |
+| `docker images`                  | List all local images                             |
+| `docker ps`                      | Show running containers                           |
+| `docker ps -a`                   | Show all containers (including stopped)           |
+| `docker run -d -p 80:80 name`    | Run container in detached mode, map port 80       |
+| `docker exec -it container bash` | Open interactive bash shell in running container  |
+| `docker logs container`          | View logs of a container                          |
+| `docker stop container`          | Stop a running container                          |
+| `docker rm container`            | Remove a container                                |
+| `docker rmi image`               | Remove an image                                   |
+| `docker volume ls`               | List volumes                                      |
+| `docker network ls`              | List Docker networks                              |
+| `docker system prune`            | Clean up unused data (containers, networks, etc.) |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Docker Compose 2.x CLI Commands
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+> In Compose v2, `docker-compose` is now `docker compose` (without the dash).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| **Command**                        | **Description**                                  |
+| ---------------------------------- | ------------------------------------------------ |
+| `docker compose up`                | Start services defined in `docker-compose.yml`   |
+| `docker compose up -d`             | Start services in detached mode                  |
+| `docker compose down`              | Stop and remove containers, networks, volumes    |
+| `docker compose build`             | Build or rebuild services                        |
+| `docker compose logs`              | View logs of all services                        |
+| `docker compose logs -f`           | Follow logs (like `tail -f`)                     |
+| `docker compose ps`                | List containers managed by Compose               |
+| `docker compose exec service bash` | Run bash shell inside running service container  |
+| `docker compose restart`           | Restart services                                 |
+| `docker compose stop`              | Stop running services                            |
+| `docker compose rm`                | Remove stopped service containers                |
+| `docker compose config`            | Validate and view the Compose file configuration |
